@@ -33,11 +33,8 @@ def sendEmail(message:str,receiver:str=os.environ['MAILTO'],subject:str=''):
     msg['Subject'] = Header(subject, 'utf-8') #邮件主题
     msg['from'] = sender    #自己的邮件地址
     try :
-        print(smtpserver)
         smtp = smtplib.SMTP(smtpserver, 587)
-        print(username)
         smtp.starttls()
-        print(password)
         smtp.login(username, password) # 登陆
         smtp.sendmail(sender, receiver, msg.as_string()) #发送
         print('邮件发送成功')
