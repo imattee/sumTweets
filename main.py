@@ -34,7 +34,7 @@ def sendEmail(message:str,receiver:str=os.environ['MAILTO'],subject:str=''):
     msg['from'] = sender    #自己的邮件地址
     smtp = smtplib.SMTP()
     try :
-        smtp.connect(smtpserver) # 链接
+        smtp.connect(smtpserver, 587) # 链接
         smtp.login(username, password) # 登陆
         smtp.sendmail(sender, receiver, msg.as_string()) #发送
         print('邮件发送成功')
